@@ -1,4 +1,4 @@
-name: Build Kernel Oppo Pad (ColorOS14-A14) with KSU and SUSFS
+name: Build Kernel Oppo Pad (ColorOS14-A14) with KSU
 on:
   workflow_call:
   workflow_dispatch:
