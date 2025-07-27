@@ -1,4 +1,4 @@
-name: Build Kernel Xiaomi Note 3 (A13) with KSU (4.19)
+name: Build Kernel Xiaomi Note 3 (A13) with KSU and SuSFS (4.19)
 on:
   workflow_call:
   workflow_dispatch:
