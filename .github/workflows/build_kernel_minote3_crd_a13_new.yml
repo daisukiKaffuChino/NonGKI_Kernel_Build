@@ -9,7 +9,6 @@ env:
   HOOK_OLDER: "false" # contain backport older patch and syscall older patch.
   KERNELSU_METHOD: "shell" # shell, manual and only.
   KERNELSU_SUS_PATCH: "true" # if u need manual susfs patch to kernelsu.
-  PROFILE_NAME: "jason_crd_a13_419.env" # your profile name.
   PATCHES_SOURCE: "SukiSU-Ultra/SukiSU_patch" # [your_name]/[your_patch] -> gooder123/NonGKI_Patcher
   PATCHES_BRANCH: "main" # [your_branch] -> main
   KPM_ENABLE: "true" # Only use it for SukiSU-Ultra.
@@ -34,7 +33,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Prepare Configuration
         run: |
-          CONFIG_ENV=$(grep -w "CONFIG_ENV" Profiles/jason_crd_a13_419.env | head -n 1 | cut -d "=" -f 2)
+          CONFIG_ENV=$(grep -w "CONFIG_ENV" Profiles/jason_lineage_a14.env | head -n 1 | cut -d "=" -f 2)
           CONFIG_LIST=(
               DEVICE_NAME
               DEVICE_CODENAME
