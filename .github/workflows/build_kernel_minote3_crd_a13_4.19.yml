@@ -1,4 +1,4 @@
-name: Build Kernel Xiaomi Note 3 (A13) with KSU (New)
+name: Build Kernel Xiaomi Note 3 (A13) with KSU (4.19)
 on:
   workflow_call:
   workflow_dispatch:
@@ -8,12 +8,11 @@ env:
   HOOK_METHOD: "normal" # manual hook method,can choice syscall and normal.
   HOOK_OLDER: "false" # contain backport older patch and syscall older patch.
   KERNELSU_METHOD: "shell" # shell, manual and only.
-  KERNELSU_SUS_PATCH: "false" # if u need manual susfs patch to kernelsu.
+  KERNELSU_SUS_PATCH: "true" # if u need manual susfs patch to kernelsu.
   PATCHES_SOURCE: "SukiSU-Ultra/SukiSU_patch" # [your_name]/[your_patch] -> gooder123/NonGKI_Patcher
   PATCHES_BRANCH: "main" # [your_branch] -> main
-  PROFILE_NAME: "jason_crd_a13.env" # your profile name.
-  KPM_ENABLE: "false" # Only use it for SukiSU-Ultra.
-  KPM_FIX: "false" # Fix Error When Enabling KPM.
+  KPM_ENABLE: "true" # Only use it for SukiSU-Ultra.
+  KPM_FIX: "true" # Fix Error When Enabling KPM.
   KPM_PATCH_SOURCE: "https://raw.githubusercontent.com/SukiSU-Ultra/SukiSU_patch/refs/heads/main/kpm/patch_linux" # patch exec file source -> raw.githubusercontent.com/Test/Test/patch .
   GENERATE_DTB: "false" # if u kernel need DTB , but cannot auto generate it. (Only Anykernel3).
   GENERATE_CHIP: "xiaomi-sdm660" # only supported for qcom and mediatek.
@@ -34,7 +33,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Prepare Configuration
         run: |
-          CONFIG_ENV=$(grep -w "CONFIG_ENV" Profiles/jason_crd_a13.env | head -n 1 | cut -d "=" -f 2)
+          CONFIG_ENV=$(grep -w "CONFIG_ENV" Profiles/jason_crd_a13_419.env | head -n 1 | cut -d "=" -f 2)
           CONFIG_LIST=(
               DEVICE_NAME
               DEVICE_CODENAME
