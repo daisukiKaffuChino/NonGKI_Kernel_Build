@@ -9,6 +9,8 @@ env:
   HOOK_OLDER: "false" # contain backport older patch and syscall older patch.
   KERNELSU_METHOD: "shell" # shell, manual and only.
   KERNELSU_SUS_PATCH: "false" # if u need manual susfs patch to kernelsu.
+  PATCHES_SOURCE: "SukiSU-Ultra/SukiSU_patch" # [your_name]/[your_patch] -> gooder123/NonGKI_Patcher
+  PATCHES_BRANCH: "main" # [your_branch] -> main
   KPM_ENABLE: "true" # Only use it for SukiSU-Ultra.
   KPM_FIX: "true" # Fix Error When Enabling KPM.
   KPM_PATCH_SOURCE: "https://raw.githubusercontent.com/SukiSU-Ultra/SukiSU_patch/refs/heads/main/kpm/patch_linux" # patch exec file source -> raw.githubusercontent.com/Test/Test/patch .
@@ -472,9 +474,9 @@ jobs:
         if: env.SUSFS_ENABLE == 'true' && env.SUSFS_FIXED == 'true'
         run: |
           cd $GITHUB_WORKSPACE/device_kernel/
-          cp NonGKI_Kernel_Patches/redmi_8_419/susfs_155_fixed.patch ./
+          cp NonGKI_Kernel_Patches/4.19/ksu_hooks_sukisu_4.19.patch ./
 
-          patch -p1 < susfs_155_fixed.patch || true
+          patch -p1 < ksu_hooks_sukisu_4.19.patch || true
 
           # patch -p1 < syscall_hooks.patch || true
           # patch -p1 < ksu_hooks_sukisu_4.19.patch || true    
