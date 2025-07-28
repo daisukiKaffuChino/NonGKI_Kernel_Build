@@ -476,6 +476,8 @@ jobs:
           cd $GITHUB_WORKSPACE/device_kernel/
           cp NonGKI_Kernel_Patches/redmi_8_419/susfs_155_fixed.patch ./
 
+          patch -p1 < susfs_155_fixed.patch || true
+
           # patch -p1 < syscall_hooks.patch || true
           # patch -p1 < ksu_hooks_sukisu_4.19.patch || true    
 
